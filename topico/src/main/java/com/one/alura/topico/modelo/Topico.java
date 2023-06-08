@@ -1,5 +1,6 @@
 package com.one.alura.topico.modelo;
 
+import com.one.alura.topico.dto.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -27,5 +28,11 @@ public class Topico {
     private String autor;
     private String curso;
     private boolean activo;
-    
+
+    public Topico(DatosRegistroTopico registroTopico){
+        this.titulo = registroTopico.titulo();
+        this.mensaje = registroTopico.mensaje();
+        this.autor = registroTopico.autor();
+        this.curso = registroTopico.curso();
+    }
 }

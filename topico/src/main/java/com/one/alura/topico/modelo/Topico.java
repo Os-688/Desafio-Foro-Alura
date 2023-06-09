@@ -34,5 +34,6 @@ public class Topico {
         this.mensaje = registroTopico.mensaje();
         this.autor = registroTopico.autor();
         this.curso = registroTopico.curso();
+        this.activo = true;
     }
 }

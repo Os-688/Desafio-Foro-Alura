@@ -1,17 +1,18 @@
 package com.one.alura.topico.controller;
 
 
+import com.one.alura.topico.dto.DatosListadoTopico;
 import com.one.alura.topico.dto.DatosRegistroTopico;
 import com.one.alura.topico.dto.DatosRespuestaTopico;
 import com.one.alura.topico.modelo.Topico;
 import com.one.alura.topico.repository.TopicoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -31,4 +32,9 @@ public class TopicoController {
         return ResponseEntity.created(url).body(datosRespuestaTopico);
     }
 
+
+    @GetMapping
+    public ResponseEntity <Page<DatosListadoTopico>> listadoTopico (@PageableDefault(size = 20)Pageable paginacion){
+        return ResponseEntity.ok(topicoRepository.findByActivoTrue(paginacion).map(DatosListadoTopico::new));
+    }
 }

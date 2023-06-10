@@ -4,6 +4,7 @@ package com.one.alura.topico.controller;
 import com.one.alura.topico.dto.DatosListadoTopico;
 import com.one.alura.topico.dto.DatosRegistroTopico;
 import com.one.alura.topico.dto.DatosRespuestaTopico;
+import com.one.alura.topico.dto.DatosRespuestaUnicaTopico;
 import com.one.alura.topico.modelo.Topico;
 import com.one.alura.topico.repository.TopicoRepository;
 import jakarta.validation.Valid;
@@ -36,5 +37,12 @@ public class TopicoController {
     @GetMapping
     public ResponseEntity <Page<DatosListadoTopico>> listadoTopico (@PageableDefault(size = 20)Pageable paginacion){
         return ResponseEntity.ok(topicoRepository.findByActivoTrue(paginacion).map(DatosListadoTopico::new));
+    }
+
+    @GetMapping ("/{id}")
+    public ResponseEntity <DatosRespuestaUnicaTopico> retornarDatosUnicoTopico(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        DatosRespuestaUnicaTopico datosTopico = new DatosRespuestaUnicaTopico(topico);
+        return ResponseEntity.ok(datosTopico);
     }
 }

@@ -18,7 +18,7 @@ Se agregaran otras bases de datos para mejorar la seguridad o complementar el fo
 - ✔️ Actualizar un tópico
 - ✔️ Eliminar un tópico
 
-- ### Tecnologías utilizadas:
+## Tecnologías utilizadas:
 
   - [Intellij](https://www.jetbrains.com/)
   - [MySql](https://www.mysql.com/)

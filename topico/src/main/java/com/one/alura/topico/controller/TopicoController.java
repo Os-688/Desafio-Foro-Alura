@@ -1,12 +1,10 @@
 package com.one.alura.topico.controller;
 
 
-import com.one.alura.topico.dto.DatosListadoTopico;
-import com.one.alura.topico.dto.DatosRegistroTopico;
-import com.one.alura.topico.dto.DatosRespuestaTopico;
-import com.one.alura.topico.dto.DatosRespuestaUnicaTopico;
+import com.one.alura.topico.dto.*;
 import com.one.alura.topico.modelo.Topico;
 import com.one.alura.topico.repository.TopicoRepository;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,4 +43,20 @@ public class TopicoController {
         DatosRespuestaUnicaTopico datosTopico = new DatosRespuestaUnicaTopico(topico);
         return ResponseEntity.ok(datosTopico);
     }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity actualizarTopico (@RequestBody @Valid DatosActualizarTopico datosActualizarTopico){
+        Topico topico = topicoRepository.getReferenceById(datosActualizarTopico.id());
+        topico.actualizar(datosActualizarTopico);
+        return ResponseEntity.ok(new DatosRespuestaTopico(topico));
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminarTopico(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        topico.desactivarTopico();
+        return ResponseEntity.noContent().build();
+    }
+
 }

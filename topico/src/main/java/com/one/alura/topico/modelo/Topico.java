@@ -1,5 +1,6 @@
 package com.one.alura.topico.modelo;
 
+import com.one.alura.topico.dto.DatosActualizarTopico;
 import com.one.alura.topico.dto.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,5 +36,16 @@ public class Topico {
         this.autor = registroTopico.autor();
         this.curso = registroTopico.curso();
         this.activo = true;
+    }
+
+    public void actualizar(DatosActualizarTopico datosActualizarTopico){
+        this.titulo = datosActualizarTopico.titulo();
+        this.mensaje = datosActualizarTopico.mensaje();
+        this.autor = datosActualizarTopico.autor();
+        this.curso = datosActualizarTopico.curso();
+    }
+
+    public void desactivarTopico() {
+        this.activo = false;
     }
 }

@@ -10,3 +10,11 @@ Desafio impartido por ALURA LATAM en colaboración de ORACLE ONE NEXT EDUCATION.
 - Método para sobreescribir un nuevo topico.
 ## Proximamente:
 Se agregaran otras bases de datos para mejorar la seguridad o complementar el foro como puede ser usuarios y respuestas.
+
+## Requisitos:
+- ✔️ Crear un nuevo tópico
+- ✔️ Mostrar todos los tópicos creados
+- ✔️ Mostrar un tópico específico
+- ✔️ Actualizar un tópico
+- ✔️ Eliminar un tópico
+

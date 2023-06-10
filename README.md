@@ -25,4 +25,8 @@ Se agregaran otras bases de datos para mejorar la seguridad o complementar el fo
   - [Java](https://www.java.com/en/)
   - [Spring Security](https://start.spring.io/)
   - [Insomnia](https://insomnia.rest/)
+ 
+ ## Testing:
+ - El testing fue realizado con insomnia.
+ 
 
